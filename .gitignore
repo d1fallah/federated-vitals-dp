@@ -1,0 +1,82 @@
+# ============================================================
+# Federated IoT Anomaly Detection + DP — .gitignore
+# ============================================================
+
+# ---- Personal / Supervisor documents ----
+*.pdf
+*.docx
+*.doc
+*.pptx
+*.ppt
+*.xlsx
+*.xls
+
+# ---- Patient / Physiological Data (NEVER commit) ----
+data/
+mimic4wdb/
+physionet*/
+*.dat
+*.hea
+*.atr
+*.csv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+RECORDS
+
+# ---- Cloned / Vendored baseline repositories ----
+REPOS BASELINE/
+
+# ---- NVFlare workspace artifacts ----
+nvflare_workspace/
+simulate_job/
+*_workspace/
+
+# ---- Model checkpoints ----
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+models/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ---- IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Logs ----
+*.log
+logs/
+wandb/
+mlruns/
+
+# ---- Temporary ----
+tmp/
+temp/
+scratch/

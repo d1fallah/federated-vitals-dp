@@ -1,0 +1,73 @@
+{
+  "regime": "dp_pilot_3client_preliminary",
+  "label": "PRELIMINARY -- 3-client pilot on 81-patient pool, not the full K=10 Step 3b result",
+  "seed": 42,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see m3_lstm_ae.py docstring)",
+  "n_clients": 3,
+  "num_rounds": 5,
+  "local_epochs_per_round": 2,
+  "target_epsilon": 1.0,
+  "target_delta": 0.0001,
+  "final_achieved_epsilon": 0.9923976910245224,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 823,
+  "n_windows_test": 833,
+  "val_error_mean": 1.00539,
+  "val_error_std": 1.13783,
+  "adaptive_threshold": 1.93331,
+  "variance_detector_thresholds_per_channel": [
+    0.03192893,
+    4e-08,
+    1.2e-07
+  ],
+  "eval_n_windows": 833,
+  "eval_n_anomalous": 416,
+  "auroc_lstm_ae_only": 0.6361,
+  "lstm_ae_only": {
+    "f1": 0.3588,
+    "precision": 0.8704,
+    "recall": 0.226,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 134,
+        "detected": 83,
+        "recall": 0.6194029850746269
+      },
+      "dropout": {
+        "n": 134,
+        "detected": 5,
+        "recall": 0.03731343283582089
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 6,
+        "recall": 0.04054054054054054
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.656,
+    "precision": 0.7402,
+    "recall": 0.5889,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 134,
+        "detected": 93,
+        "recall": 0.6940298507462687
+      },
+      "dropout": {
+        "n": 134,
+        "detected": 92,
+        "recall": 0.6865671641791045
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 60,
+        "recall": 0.40540540540540543
+      }
+    }
+  }
+}
