@@ -9,6 +9,8 @@ supervisor's guidance): only 3 of the eventual 10 clients participated, and
 that model was trained on the current 81-patient pool, not the full
 198-patient cohort -- explicitly not the Step 3b full-scale result.
 """
+import argparse
+import glob
 import os
 import sys
 import json
@@ -23,14 +25,23 @@ from anomaly_eval import build_labeled_eval_set
 from variance_detector import compute_variance_scores, variance_threshold, variance_predict, combine_predictions
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Results")
-SEED = 42
+RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 MAX_WINDOWS_PER_PATIENT = 80
 WINDOW_SEC = 10
-CHECKPOINT = r"C:/tmp/nvflare/simulation/m3-dp-pilot/server/simulate_job/app_server/FL_global_model.pt"
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--k_clients", type=int, default=10, help="Which K-sweep run to evaluate (10, 5, 3, or 1)")
+    parser.add_argument("--seed", type=int, default=42,
+                         help="Must match the --seed used for the corresponding dp_federated_job.py training run.")
+    args = parser.parse_args()
+    K = args.k_clients
+    SEED = args.seed
+    job_seed_suffix = "" if SEED == 42 else f"-seed{SEED}"
+    file_seed_suffix = "" if SEED == 42 else f"_seed{SEED}"
+    checkpoint = rf"C:/tmp/nvflare/simulation/m3-dp-federated-k{K}{job_seed_suffix}/server/simulate_job/app_server/FL_global_model.pt"
+
     os.makedirs(RESULTS_DIR, exist_ok=True)
     rng = np.random.default_rng(SEED)
 
@@ -47,7 +58,7 @@ def main():
     X_test, _ = build_dataset(PROJECT_ROOT, test_patients, window_sec=WINDOW_SEC, max_windows_per_patient=MAX_WINDOWS_PER_PATIENT)
     print(f"Windows: val {X_val.shape[0]} / test {X_test.shape[0]}")
 
-    ckpt = torch.load(CHECKPOINT, map_location="cpu", weights_only=False)
+    ckpt = torch.load(checkpoint, map_location="cpu", weights_only=False)
     state_dict = ckpt["model"]
 
     model = LSTMAutoencoder(n_channels=X_val.shape[-1], hidden_size=32, latent_size=16)
@@ -93,22 +104,42 @@ def main():
         print("  per-anomaly-type recall:", json.dumps(breakdown, indent=2))
         return f1, precision, recall, breakdown
 
-    f1_recon, precision_recon, recall_recon, breakdown_recon = score_block("DP Pilot (3 clients) LSTM-AE only", y_pred_recon)
-    f1_comb, precision_comb, recall_comb, breakdown_comb = score_block("DP Pilot + variance detector (combined)", y_pred_combined)
+    f1_recon, precision_recon, recall_recon, breakdown_recon = score_block(f"DP Federated (K={K}) LSTM-AE only", y_pred_recon)
+    f1_var, precision_var, recall_var, breakdown_var = score_block(f"DP Federated (K={K}) variance detector only", y_pred_var)
+    f1_comb, precision_comb, recall_comb, breakdown_comb = score_block(f"DP Federated (K={K}) + variance detector (combined)", y_pred_combined)
+
+    # Pull real per-client (C, sigma, achieved epsilon, batch/round verification)
+    # from the round logs FLARE wrote into each site's sandbox custom/ dir --
+    # copy them into results/ at the same time so they survive past the
+    # /tmp simulation workspace, and report the REAL achieved epsilon here
+    # instead of a stale hardcoded value.
+    import shutil
+    sandbox_glob = rf"C:/tmp/nvflare/simulation/m3-dp-federated-k{K}{job_seed_suffix}/site-*/simulate_job/app_site-*/custom/dp_pilot_round_log_k{K}{file_seed_suffix}_*.json"
+    client_logs = []
+    for src_path in glob.glob(sandbox_glob):
+        dst_path = os.path.join(RESULTS_DIR, os.path.basename(src_path))
+        shutil.copy(src_path, dst_path)
+        with open(dst_path) as f:
+            client_logs.append(json.load(f))
+    achieved_epsilons = [c["final_achieved_epsilon"] for c in client_logs]
+    print(f"\nPer-client verification logs found: {len(client_logs)} (copied to {RESULTS_DIR})")
+    for c in client_logs:
+        print(f"  {c['site']}: n_patients={c['n_patients']} C={c['clip_norm_C']:.4f} "
+              f"sigma={c['noise_multiplier']:.4f} achieved_eps={c['final_achieved_epsilon']:.4f} "
+              f"all_rounds_ok={all(r['ok'] for r in c['round_log'])}")
 
     results = {
-        "regime": "dp_pilot_3client_preliminary",
-        "label": "PRELIMINARY -- 3-client pilot on 81-patient pool, not the full K=10 Step 3b result",
+        "regime": f"dp_federated_k{K}",
+        "label": f"K={K} sweep run on the 81-patient pool (per 19 Aug supervisor guidance)",
         "seed": SEED,
         "window_sec": WINDOW_SEC,
         "threshold_method": "95th percentile of validation error",
-        "architecture_note": "per-timestep-bottleneck decoder (see m3_lstm_ae.py docstring)",
-        "n_clients": 3,
-        "num_rounds": 5,
-        "local_epochs_per_round": 2,
+        "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+        "k_clients": K,
         "target_epsilon": 1.0,
         "target_delta": 1e-4,
-        "final_achieved_epsilon": 0.9923976910245224,
+        "achieved_epsilon_per_client": achieved_epsilons,
+        "client_logs": client_logs,
         "n_patients_val": len(val_patients),
         "n_patients_test": len(test_patients),
         "n_windows_val": int(X_val.shape[0]),
@@ -126,6 +157,12 @@ def main():
             "recall": round(float(recall_recon), 4),
             "per_anomaly_type_recall": breakdown_recon,
         },
+        "variance_detector_only": {
+            "f1": round(float(f1_var), 4),
+            "precision": round(float(precision_var), 4),
+            "recall": round(float(recall_var), 4),
+            "per_anomaly_type_recall": breakdown_var,
+        },
         "combined_with_variance_detector": {
             "f1": round(float(f1_comb), 4),
             "precision": round(float(precision_comb), 4),
@@ -133,7 +170,7 @@ def main():
             "per_anomaly_type_recall": breakdown_comb,
         },
     }
-    out_path = os.path.join(RESULTS_DIR, "m3_dp_pilot_results.json")
+    out_path = os.path.join(RESULTS_DIR, f"m3_dp_federated_k{K}{file_seed_suffix}_results.json")
     with open(out_path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\nResults saved to {out_path}")

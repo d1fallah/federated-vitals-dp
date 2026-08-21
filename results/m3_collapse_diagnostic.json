@@ -1,0 +1,80 @@
+{
+  "seed": 42,
+  "input_std_per_channel": [
+    0.985625,
+    0.999807,
+    0.999319
+  ],
+  "regimes": {
+    "Non-DP Federated K=10": {
+      "checkpoint_path": "C:/tmp/nvflare/simulation/m3-non-dp-federated/server/simulate_job/app_server/FL_global_model.pt",
+      "recon_std_per_channel": [
+        0.931463,
+        0.998405,
+        0.995777
+      ],
+      "ratio_per_channel": [
+        0.945048,
+        0.998597,
+        0.996455
+      ],
+      "collapsed": false
+    },
+    "DP Federated K=10": {
+      "checkpoint_path": "C:/tmp/nvflare/simulation/m3-dp-federated-k10/server/simulate_job/app_server/FL_global_model.pt",
+      "recon_std_per_channel": [
+        0.002634,
+        0.002705,
+        0.002472
+      ],
+      "ratio_per_channel": [
+        0.002672,
+        0.002705,
+        0.002474
+      ],
+      "collapsed": true
+    },
+    "DP Federated K=5": {
+      "checkpoint_path": "C:/tmp/nvflare/simulation/m3-dp-federated-k5/server/simulate_job/app_server/FL_global_model.pt",
+      "recon_std_per_channel": [
+        0.002194,
+        0.003612,
+        0.0035
+      ],
+      "ratio_per_channel": [
+        0.002226,
+        0.003612,
+        0.003502
+      ],
+      "collapsed": true
+    },
+    "DP Federated K=3": {
+      "checkpoint_path": "C:/tmp/nvflare/simulation/m3-dp-federated-k3/server/simulate_job/app_server/FL_global_model.pt",
+      "recon_std_per_channel": [
+        0.003789,
+        0.007919,
+        0.004689
+      ],
+      "ratio_per_channel": [
+        0.003844,
+        0.00792,
+        0.004692
+      ],
+      "collapsed": true
+    },
+    "DP Federated K=1": {
+      "checkpoint_path": "C:/tmp/nvflare/simulation/m3-dp-federated-k1/server/simulate_job/app_server/FL_global_model.pt",
+      "recon_std_per_channel": [
+        0.00989,
+        0.003116,
+        0.005933
+      ],
+      "ratio_per_channel": [
+        0.010034,
+        0.003117,
+        0.005937
+      ],
+      "collapsed": true
+    }
+  }
+}

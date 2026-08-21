@@ -1,0 +1,16 @@
+% M3 Axis 3 -- Connectivity robustness: 5-seed comparison table
+\begin{table}[t]
+\centering
+\caption{Connectivity-robustness ablation (roadmap-fixed Good/Moderate/Poor network profiles), 5-seed mean $\pm$ std. Participation: a-priori schedule matched observed round logs exactly at every seed.}
+\label{tab:m3-connectivity}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Profile & Participation & LSTM-AE-only F1 & Variance-only F1 & Combined F1 \\
+\midrule
+None (baseline) & 100\% & 0.398 $\pm$ 0.058 & 0.483 $\pm$ 0.067 & 0.648 $\pm$ 0.019 \\
+Good & 91--97\% & 0.397 $\pm$ 0.051 & 0.483 $\pm$ 0.067 & 0.647 $\pm$ 0.031 \\
+Moderate & 70--77\% & 0.399 $\pm$ 0.036 & 0.483 $\pm$ 0.067 & 0.648 $\pm$ 0.029 \\
+Poor & 10\% & 0.424 $\pm$ 0.032 & 0.483 $\pm$ 0.067 & 0.660 $\pm$ 0.030 \\
+\bottomrule
+\end{tabular}
+\end{table}

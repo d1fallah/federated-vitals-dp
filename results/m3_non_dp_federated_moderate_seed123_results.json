@@ -1,0 +1,711 @@
+{
+  "regime": "non_dp_federated_network_moderate",
+  "network_profile": "moderate",
+  "seed": 123,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 10,
+  "num_rounds": 10,
+  "local_epochs_per_round": 4,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 765,
+  "n_windows_test": 904,
+  "val_error_mean": 0.0261,
+  "val_error_std": 0.44151,
+  "adaptive_threshold": 0.00181,
+  "variance_detector_thresholds_per_channel": [
+    0.0,
+    2e-08,
+    9e-08
+  ],
+  "eval_n_windows": 904,
+  "eval_n_anomalous": 452,
+  "auroc_lstm_ae_only": 0.6559,
+  "lstm_ae_only": {
+    "f1": 0.3746,
+    "precision": 0.8385,
+    "recall": 0.2412,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 144,
+        "detected": 99,
+        "recall": 0.6875
+      },
+      "dropout": {
+        "n": 149,
+        "detected": 6,
+        "recall": 0.040268456375838924
+      },
+      "flatline": {
+        "n": 159,
+        "detected": 4,
+        "recall": 0.025157232704402517
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.5029,
+    "precision": 0.7331,
+    "recall": 0.3827,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 144,
+        "detected": 22,
+        "recall": 0.1527777777777778
+      },
+      "dropout": {
+        "n": 149,
+        "detected": 108,
+        "recall": 0.7248322147651006
+      },
+      "flatline": {
+        "n": 159,
+        "detected": 43,
+        "recall": 0.27044025157232704
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6633,
+    "precision": 0.76,
+    "recall": 0.5885,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 144,
+        "detected": 109,
+        "recall": 0.7569444444444444
+      },
+      "dropout": {
+        "n": 149,
+        "detected": 111,
+        "recall": 0.7449664429530202
+      },
+      "flatline": {
+        "n": 159,
+        "detected": 46,
+        "recall": 0.2893081761006289
+      }
+    }
+  },
+  "connectivity_robustness": {
+    "a_priori_participation_rate": 0.77,
+    "a_priori_reason_breakdown": {
+      "ok": 77,
+      "dropout": 17,
+      "packet_loss": 6
+    },
+    "a_priori_per_round_participation": {
+      "0": 0.9,
+      "1": 0.7,
+      "2": 0.5,
+      "3": 0.9,
+      "4": 0.8,
+      "5": 0.9,
+      "6": 0.8,
+      "7": 0.6,
+      "8": 0.7,
+      "9": 0.9
+    },
+    "observed_participation_rate": 0.77,
+    "observed_reason_breakdown": {
+      "ok": 77,
+      "dropout": 17,
+      "packet_loss": 6
+    },
+    "n_client_logs_found": 10,
+    "client_logs": [
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-1",
+        "client_id": 0,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "dropout"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-10",
+        "client_id": 9,
+        "n_local_windows": 598,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-2",
+        "client_id": 1,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-3",
+        "client_id": 2,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-4",
+        "client_id": 3,
+        "n_local_windows": 575,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-5",
+        "client_id": 4,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-6",
+        "client_id": 5,
+        "n_local_windows": 486,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-7",
+        "client_id": 6,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-8",
+        "client_id": 7,
+        "n_local_windows": 567,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      },
+      {
+        "network_profile": "moderate",
+        "seed": 123,
+        "site": "site-9",
+        "client_id": 8,
+        "n_local_windows": 521,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "ok"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "ok"
+          }
+        ]
+      }
+    ]
+  }
+}

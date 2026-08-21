@@ -1,0 +1,59 @@
+{
+  "network_profile": "poor",
+  "seed": 789,
+  "site": "site-6",
+  "client_id": 5,
+  "n_local_windows": 567,
+  "round_log": [
+    {
+      "round": 0,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 1,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 2,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 3,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 4,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 5,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 6,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 7,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 8,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 9,
+      "delivered": false,
+      "reason": "dropout"
+    }
+  ]
+}

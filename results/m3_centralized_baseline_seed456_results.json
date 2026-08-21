@@ -1,0 +1,94 @@
+{
+  "regime": "centralized",
+  "seed": 456,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (fixed from an earlier repeat-vector design that collapsed to near-constant output; see lstm_autoencoder.py docstring)",
+  "n_patients_total": 81,
+  "n_patients_train": 56,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_train": 4234,
+  "n_windows_val": 833,
+  "n_windows_test": 880,
+  "train_time_sec": 21.9,
+  "train_loss_first_epoch": 0.28767,
+  "train_loss_last_epoch": 0.00948,
+  "val_error_mean": 0.00847,
+  "val_error_std": 0.12812,
+  "adaptive_threshold": 0.00711,
+  "variance_detector_thresholds_per_channel": [
+    0.1220247,
+    0.01028159,
+    0.0
+  ],
+  "eval_n_windows": 880,
+  "eval_n_anomalous": 440,
+  "auroc_lstm_ae_only": 0.6004,
+  "lstm_ae_only": {
+    "f1": 0.3191,
+    "precision": 0.7258,
+    "recall": 0.2045,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 72,
+        "recall": 0.4897959183673469
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 7,
+        "recall": 0.04964539007092199
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 11,
+        "recall": 0.07236842105263158
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.5684,
+    "precision": 0.5806,
+    "recall": 0.5568,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 55,
+        "recall": 0.3741496598639456
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 93,
+        "recall": 0.6595744680851063
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 97,
+        "recall": 0.6381578947368421
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6424,
+    "precision": 0.6073,
+    "recall": 0.6818,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 101,
+        "recall": 0.6870748299319728
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 94,
+        "recall": 0.6666666666666666
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 105,
+        "recall": 0.6907894736842105
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "network_profile": "poor",
+  "site": "site-7",
+  "client_id": 6,
+  "n_local_windows": 560,
+  "round_log": [
+    {
+      "round": 0,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 1,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 2,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 3,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 4,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 5,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 6,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 7,
+      "delivered": false,
+      "reason": "packet_loss"
+    },
+    {
+      "round": 8,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    },
+    {
+      "round": 9,
+      "delivered": false,
+      "reason": "deadline_exceeded"
+    }
+  ]
+}

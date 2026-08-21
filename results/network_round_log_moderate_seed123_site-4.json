@@ -1,0 +1,59 @@
+{
+  "network_profile": "moderate",
+  "seed": 123,
+  "site": "site-4",
+  "client_id": 3,
+  "n_local_windows": 575,
+  "round_log": [
+    {
+      "round": 0,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 1,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 2,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 3,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 4,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 5,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 6,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 7,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 8,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 9,
+      "delivered": true,
+      "reason": "ok"
+    }
+  ]
+}

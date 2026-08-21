@@ -1,0 +1,36 @@
+% M3 -- per-anomaly-type, per-detector recall breakdown, 5-seed mean +/- std
+% Requires \usepackage{multirow} in the paper preamble.
+\begin{table}[t]
+\centering
+\caption{Recall by anomaly type and detector variant, 5-seed mean $\pm$ std. The mechanistic evidence for ensemble stability: the variance detector covers dropout/flatline, the LSTM-AE covers spike, regardless of DP/federation condition.}
+\label{tab:m3-anomaly-breakdown}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Regime & Detector & Spike recall & Dropout recall & Flatline recall \\
+\midrule
+\multirow{3}{*}{Centralized} & LSTM-AE-only & 0.631 $\pm$ 0.122 & 0.036 $\pm$ 0.014 & 0.051 $\pm$ 0.015 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.719 $\pm$ 0.067 & 0.619 $\pm$ 0.107 & 0.411 $\pm$ 0.168 \\
+\midrule
+\multirow{3}{*}{Non-DP Federated (K=10)} & LSTM-AE-only & 0.708 $\pm$ 0.132 & 0.043 $\pm$ 0.021 & 0.047 $\pm$ 0.018 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.770 $\pm$ 0.110 & 0.629 $\pm$ 0.115 & 0.405 $\pm$ 0.167 \\
+\midrule
+\multirow{3}{*}{DP Federated K=10} & LSTM-AE-only & 0.687 $\pm$ 0.059 & 0.044 $\pm$ 0.021 & 0.050 $\pm$ 0.015 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.753 $\pm$ 0.082 & 0.627 $\pm$ 0.109 & 0.410 $\pm$ 0.166 \\
+\midrule
+\multirow{3}{*}{DP Federated K=5} & LSTM-AE-only & 0.683 $\pm$ 0.054 & 0.046 $\pm$ 0.022 & 0.051 $\pm$ 0.014 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.753 $\pm$ 0.078 & 0.629 $\pm$ 0.110 & 0.410 $\pm$ 0.166 \\
+\midrule
+\multirow{3}{*}{DP Federated K=3} & LSTM-AE-only & 0.686 $\pm$ 0.048 & 0.045 $\pm$ 0.021 & 0.048 $\pm$ 0.012 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.756 $\pm$ 0.078 & 0.628 $\pm$ 0.111 & 0.409 $\pm$ 0.164 \\
+\midrule
+\multirow{3}{*}{DP Federated K=1} & LSTM-AE-only & 0.689 $\pm$ 0.053 & 0.046 $\pm$ 0.022 & 0.050 $\pm$ 0.015 \\
+ & Variance-only & 0.182 $\pm$ 0.113 & 0.608 $\pm$ 0.112 & 0.377 $\pm$ 0.161 \\
+ & Combined & 0.759 $\pm$ 0.079 & 0.629 $\pm$ 0.110 & 0.410 $\pm$ 0.166 \\
+\bottomrule
+\end{tabular}
+\end{table}

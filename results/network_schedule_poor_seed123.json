@@ -1,0 +1,522 @@
+{
+  "0": {
+    "0": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 5.0222
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    }
+  },
+  "1": {
+    "0": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 6.0266
+    },
+    "1": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 6.0266
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 6.0266
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 6.0266
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 6.0266
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 6.0266
+    }
+  },
+  "2": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 4.0177
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "4": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "3": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 4.0177
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    }
+  },
+  "4": {
+    "0": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 8.0355
+    },
+    "1": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "4": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "5": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "7": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 8.0355
+    }
+  },
+  "5": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 5.0222
+    },
+    "4": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 5.0222
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "6": {
+    "0": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 7.031
+    },
+    "1": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    },
+    "4": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    },
+    "7": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 7.031
+    }
+  },
+  "7": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 4.0177
+    },
+    "5": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "7": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "8": {
+    "0": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 3.0133
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 3.0133
+    },
+    "4": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 3.0133
+    },
+    "7": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "8": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "9": {
+    "0": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "forced_min_survivor_override",
+      "transfer_sec": 4.0177
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "4": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "7": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "8": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    },
+    "9": {
+      "delivered": false,
+      "reason": "deadline_exceeded",
+      "transfer_sec": 4.0177
+    }
+  }
+}

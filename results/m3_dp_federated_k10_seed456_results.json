@@ -1,0 +1,556 @@
+{
+  "regime": "dp_federated_k10",
+  "label": "K=10 sweep run on the 81-patient pool (per 19 Aug supervisor guidance)",
+  "seed": 456,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 10,
+  "target_epsilon": 1.0,
+  "target_delta": 0.0001,
+  "achieved_epsilon_per_client": [
+    0.9716804954599793,
+    0.9973953842216993,
+    0.9973953842216993,
+    0.9835094320448056,
+    0.9973953842216993,
+    0.9835094320448056,
+    0.9973953842216993,
+    0.9624067752469978,
+    0.9624067752469978,
+    0.9835094320448056
+  ],
+  "client_logs": [
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-1",
+      "client_id": 0,
+      "n_patients": 9,
+      "clip_norm_C": 0.5229595899581909,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 8.515625,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9716804954599793,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 9,
+          "n_unique_patients": 9,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 9,
+          "n_unique_patients": 9,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 9,
+          "n_unique_patients": 9,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 9,
+          "n_unique_patients": 9,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 9,
+          "n_unique_patients": 9,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-10",
+      "client_id": 9,
+      "n_patients": 8,
+      "clip_norm_C": 0.36443641781806946,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9973953842216993,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-2",
+      "client_id": 1,
+      "n_patients": 8,
+      "clip_norm_C": 0.9670095443725586,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9973953842216993,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-3",
+      "client_id": 2,
+      "n_patients": 8,
+      "clip_norm_C": 1.0789295434951782,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9835094320448056,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-4",
+      "client_id": 3,
+      "n_patients": 8,
+      "clip_norm_C": 0.5228533744812012,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9973953842216993,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-5",
+      "client_id": 4,
+      "n_patients": 8,
+      "clip_norm_C": 0.6051741242408752,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9835094320448056,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-6",
+      "client_id": 5,
+      "n_patients": 8,
+      "clip_norm_C": 0.5828100442886353,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9973953842216993,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-7",
+      "client_id": 6,
+      "n_patients": 7,
+      "clip_norm_C": 0.4135753810405731,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 8.515625,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9624067752469978,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-8",
+      "client_id": 7,
+      "n_patients": 7,
+      "clip_norm_C": 0.9248111248016357,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 8.515625,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9624067752469978,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 7,
+          "n_unique_patients": 7,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "k_clients": 10,
+      "seed": 456,
+      "site": "site-9",
+      "client_id": 8,
+      "n_patients": 8,
+      "clip_norm_C": 0.9030237197875977,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 10.3125,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9835094320448056,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 8,
+          "n_unique_patients": 8,
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 833,
+  "n_windows_test": 880,
+  "val_error_mean": 1.00409,
+  "val_error_std": 1.36298,
+  "adaptive_threshold": 1.64774,
+  "variance_detector_thresholds_per_channel": [
+    0.1220247,
+    0.01028159,
+    0.0
+  ],
+  "eval_n_windows": 880,
+  "eval_n_anomalous": 440,
+  "auroc_lstm_ae_only": 0.6451,
+  "lstm_ae_only": {
+    "f1": 0.439,
+    "precision": 0.7714,
+    "recall": 0.3068,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 115,
+        "recall": 0.782312925170068
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 9,
+        "recall": 0.06382978723404255
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 11,
+        "recall": 0.07236842105263158
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.5684,
+    "precision": 0.5806,
+    "recall": 0.5568,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 55,
+        "recall": 0.3741496598639456
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 93,
+        "recall": 0.6595744680851063
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 97,
+        "recall": 0.6381578947368421
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.681,
+    "precision": 0.6206,
+    "recall": 0.7545,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 132,
+        "recall": 0.8979591836734694
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 96,
+        "recall": 0.6808510638297872
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 104,
+        "recall": 0.6842105263157895
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "network_profile": "moderate",
+  "seed": 789,
+  "site": "site-9",
+  "client_id": 8,
+  "n_local_windows": 578,
+  "round_log": [
+    {
+      "round": 0,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 1,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 2,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 3,
+      "delivered": false,
+      "reason": "packet_loss"
+    },
+    {
+      "round": 4,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 5,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 6,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 7,
+      "delivered": true,
+      "reason": "ok"
+    },
+    {
+      "round": 8,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 9,
+      "delivered": true,
+      "reason": "ok"
+    }
+  ]
+}

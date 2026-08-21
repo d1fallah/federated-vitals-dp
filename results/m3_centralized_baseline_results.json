@@ -3,7 +3,7 @@
   "seed": 42,
   "window_sec": 10,
   "threshold_method": "95th percentile of validation error",
-  "architecture_note": "per-timestep-bottleneck decoder (fixed from an earlier repeat-vector design that collapsed to near-constant output; see m3_lstm_ae.py docstring)",
+  "architecture_note": "per-timestep-bottleneck decoder (fixed from an earlier repeat-vector design that collapsed to near-constant output; see lstm_autoencoder.py docstring)",
   "n_patients_total": 81,
   "n_patients_train": 56,
   "n_patients_val": 12,
@@ -11,12 +11,12 @@
   "n_windows_train": 4291,
   "n_windows_val": 823,
   "n_windows_test": 833,
-  "train_time_sec": 198.5,
-  "train_loss_first_epoch": 0.25334,
-  "train_loss_last_epoch": 0.01338,
-  "val_error_mean": 0.01144,
-  "val_error_std": 0.29187,
-  "adaptive_threshold": 0.00181,
+  "train_time_sec": 29.0,
+  "train_loss_first_epoch": 0.25603,
+  "train_loss_last_epoch": 0.00916,
+  "val_error_mean": 0.00987,
+  "val_error_std": 0.25655,
+  "adaptive_threshold": 0.00109,
   "variance_detector_thresholds_per_channel": [
     0.03192893,
     4e-08,
@@ -24,10 +24,10 @@
   ],
   "eval_n_windows": 833,
   "eval_n_anomalous": 416,
-  "auroc_lstm_ae_only": 0.6536,
+  "auroc_lstm_ae_only": 0.6782,
   "lstm_ae_only": {
-    "f1": 0.3925,
-    "precision": 0.8824,
+    "f1": 0.397,
+    "precision": 0.9292,
     "recall": 0.2524,
     "per_anomaly_type_recall": {
       "spike": {
@@ -47,15 +47,37 @@
       }
     }
   },
-  "combined_with_variance_detector": {
-    "f1": 0.6702,
-    "precision": 0.7463,
-    "recall": 0.6082,
+  "variance_detector_only": {
+    "f1": 0.5046,
+    "precision": 0.686,
+    "recall": 0.399,
     "per_anomaly_type_recall": {
       "spike": {
         "n": 134,
-        "detected": 102,
-        "recall": 0.7611940298507462
+        "detected": 18,
+        "recall": 0.13432835820895522
+      },
+      "dropout": {
+        "n": 134,
+        "detected": 91,
+        "recall": 0.6791044776119403
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 57,
+        "recall": 0.38513513513513514
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6782,
+    "precision": 0.7628,
+    "recall": 0.6106,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 134,
+        "detected": 103,
+        "recall": 0.7686567164179104
       },
       "dropout": {
         "n": 134,

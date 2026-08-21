@@ -1,0 +1,18 @@
+% M3 Axis 2 -- Utility: primary 5-seed comparison table (seeds 42,123,7,456,789)
+\begin{table}[t]
+\centering
+\caption{Utility comparison across the three required regimes (centralized, non-DP federated, DP federated K-sweep), 5-seed mean $\pm$ std.}
+\label{tab:m3-utility-primary}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Regime & AUROC (LSTM-AE) & LSTM-AE-only F1 & Variance-only F1 & Combined F1 \\
+\midrule
+Centralized & 0.633 $\pm$ 0.044 & 0.370 $\pm$ 0.050 & 0.483 $\pm$ 0.067 & 0.641 $\pm$ 0.023 \\
+Non-DP Federated (K=10) & 0.663 $\pm$ 0.013 & 0.398 $\pm$ 0.058 & 0.483 $\pm$ 0.067 & 0.648 $\pm$ 0.019 \\
+DP Federated K=10 & 0.643 $\pm$ 0.009 & 0.393 $\pm$ 0.030 & 0.483 $\pm$ 0.067 & 0.645 $\pm$ 0.029 \\
+DP Federated K=5 & 0.643 $\pm$ 0.010 & 0.392 $\pm$ 0.029 & 0.483 $\pm$ 0.067 & 0.645 $\pm$ 0.028 \\
+DP Federated K=3 & 0.644 $\pm$ 0.010 & 0.392 $\pm$ 0.025 & 0.483 $\pm$ 0.067 & 0.646 $\pm$ 0.029 \\
+DP Federated K=1 & 0.644 $\pm$ 0.009 & 0.395 $\pm$ 0.029 & 0.483 $\pm$ 0.067 & 0.647 $\pm$ 0.027 \\
+\bottomrule
+\end{tabular}
+\end{table}

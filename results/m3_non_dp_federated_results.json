@@ -1,9 +1,10 @@
 {
   "regime": "non_dp_federated",
+  "network_profile": "none",
   "seed": 42,
   "window_sec": 10,
   "threshold_method": "95th percentile of validation error",
-  "architecture_note": "per-timestep-bottleneck decoder (see m3_lstm_ae.py docstring)",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
   "k_clients": 10,
   "num_rounds": 10,
   "local_epochs_per_round": 4,
@@ -11,9 +12,9 @@
   "n_patients_test": 13,
   "n_windows_val": 823,
   "n_windows_test": 833,
-  "val_error_mean": 0.02147,
-  "val_error_std": 0.48828,
-  "adaptive_threshold": 0.00293,
+  "val_error_mean": 0.02302,
+  "val_error_std": 0.51631,
+  "adaptive_threshold": 0.0027,
   "variance_detector_thresholds_per_channel": [
     0.03192893,
     4e-08,
@@ -21,16 +22,16 @@
   ],
   "eval_n_windows": 833,
   "eval_n_anomalous": 416,
-  "auroc_lstm_ae_only": 0.6723,
+  "auroc_lstm_ae_only": 0.6729,
   "lstm_ae_only": {
-    "f1": 0.3483,
-    "precision": 0.9368,
-    "recall": 0.2139,
+    "f1": 0.3366,
+    "precision": 0.9053,
+    "recall": 0.2067,
     "per_anomaly_type_recall": {
       "spike": {
         "n": 134,
-        "detected": 78,
-        "recall": 0.582089552238806
+        "detected": 75,
+        "recall": 0.5597014925373134
       },
       "dropout": {
         "n": 134,
@@ -44,15 +45,37 @@
       }
     }
   },
-  "combined_with_variance_detector": {
-    "f1": 0.6484,
-    "precision": 0.7524,
-    "recall": 0.5697,
+  "variance_detector_only": {
+    "f1": 0.5046,
+    "precision": 0.686,
+    "recall": 0.399,
     "per_anomaly_type_recall": {
       "spike": {
         "n": 134,
-        "detected": 86,
-        "recall": 0.6417910447761194
+        "detected": 18,
+        "recall": 0.13432835820895522
+      },
+      "dropout": {
+        "n": 134,
+        "detected": 91,
+        "recall": 0.6791044776119403
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 57,
+        "recall": 0.38513513513513514
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6421,
+    "precision": 0.7437,
+    "recall": 0.5649,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 134,
+        "detected": 84,
+        "recall": 0.6268656716417911
       },
       "dropout": {
         "n": 134,

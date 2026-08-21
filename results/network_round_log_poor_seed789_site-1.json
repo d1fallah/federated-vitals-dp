@@ -1,0 +1,59 @@
+{
+  "network_profile": "poor",
+  "seed": 789,
+  "site": "site-1",
+  "client_id": 0,
+  "n_local_windows": 560,
+  "round_log": [
+    {
+      "round": 0,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 1,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 2,
+      "delivered": false,
+      "reason": "dropout"
+    },
+    {
+      "round": 3,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 4,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 5,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 6,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 7,
+      "delivered": false,
+      "reason": "packet_loss"
+    },
+    {
+      "round": 8,
+      "delivered": true,
+      "reason": "forced_min_survivor_override"
+    },
+    {
+      "round": 9,
+      "delivered": false,
+      "reason": "dropout"
+    }
+  ]
+}

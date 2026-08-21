@@ -1,0 +1,92 @@
+{
+  "regime": "non_dp_federated",
+  "network_profile": "none",
+  "seed": 7,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 10,
+  "num_rounds": 10,
+  "local_epochs_per_round": 4,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 799,
+  "n_windows_test": 886,
+  "val_error_mean": 0.04916,
+  "val_error_std": 0.65263,
+  "adaptive_threshold": 0.00199,
+  "variance_detector_thresholds_per_channel": [
+    3e-08,
+    0.00161049,
+    0.0
+  ],
+  "eval_n_windows": 886,
+  "eval_n_anomalous": 443,
+  "auroc_lstm_ae_only": 0.6683,
+  "lstm_ae_only": {
+    "f1": 0.462,
+    "precision": 0.8589,
+    "recall": 0.316,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 132,
+        "recall": 0.88
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 2,
+        "recall": 0.013245033112582781
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 6,
+        "recall": 0.04225352112676056
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.4487,
+    "precision": 0.6565,
+    "recall": 0.3409,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 26,
+        "recall": 0.17333333333333334
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 73,
+        "recall": 0.48344370860927155
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 52,
+        "recall": 0.36619718309859156
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6493,
+    "precision": 0.723,
+    "recall": 0.5892,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 132,
+        "recall": 0.88
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 74,
+        "recall": 0.4900662251655629
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 55,
+        "recall": 0.3873239436619718
+      }
+    }
+  }
+}

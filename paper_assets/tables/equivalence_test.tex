@@ -1,0 +1,20 @@
+% M3 -- formal TOST equivalence test, margin Delta=0.05 F1, vs. Centralized reference
+\begin{table}[t]
+\centering
+\caption{TOST equivalence test ($\Delta=0.05$ F1, supervisor-specified margin), each regime vs. the centralized reference, 5-seed combined F1. Welch two-sample formulation; 90\% CI equivalent to two one-sided $\alpha=0.05$ tests.}
+\label{tab:m3-equivalence-test}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Regime (vs. Centralized) & Mean diff. & 90\% CI & TOST $p$ & Verdict \\
+\midrule
+Non-DP Federated (K=10) & +0.0076 & [-0.018, +0.033] & 0.0071 & Equivalent \\
+DP Federated K=10 & +0.0043 & [-0.027, +0.035] & 0.0127 & Equivalent \\
+DP Federated K=5 & +0.0043 & [-0.026, +0.035] & 0.0124 & Equivalent \\
+DP Federated K=3 & +0.0053 & [-0.026, +0.036] & 0.0144 & Equivalent \\
+DP Federated K=1 & +0.0066 & [-0.023, +0.036] & 0.0132 & Equivalent \\
+Connectivity Good & +0.0061 & [-0.027, +0.039] & 0.0189 & Equivalent \\
+Connectivity Moderate & +0.0071 & [-0.024, +0.038] & 0.0167 & Equivalent \\
+Connectivity Poor & +0.0189 & [-0.013, +0.051] & 0.0544 & Not established \\
+\bottomrule
+\end{tabular}
+\end{table}

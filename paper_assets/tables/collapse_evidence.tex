@@ -1,0 +1,17 @@
+% M3 -- DP-SGD model-level collapse evidence (recon_std / input_std), real checkpoints, seed 42
+\begin{table}[t]
+\centering
+\caption{Reconstruction std vs.\ input std, measured directly on the actual checkpoints behind every reported F1 (pure diagnostic, no new training). DP-SGD collapse is real and unresolved at every tested $K$; no evidenced code fix exists.}
+\label{tab:m3-collapse-evidence}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Regime & recon\_std / input\_std & Status \\
+\midrule
+Non-DP Federated K=10 & 0.9450--0.9986 & Not collapsed \\
+DP Federated K=10 & 0.0025--0.0027 & \textbf{Collapsed} \\
+DP Federated K=5 & 0.0022--0.0036 & \textbf{Collapsed} \\
+DP Federated K=3 & 0.0038--0.0079 & \textbf{Collapsed} \\
+DP Federated K=1 & 0.0031--0.0100 & \textbf{Collapsed} \\
+\bottomrule
+\end{tabular}
+\end{table}

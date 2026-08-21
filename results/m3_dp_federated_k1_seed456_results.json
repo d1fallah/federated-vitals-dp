@@ -1,0 +1,142 @@
+{
+  "regime": "dp_federated_k1",
+  "label": "K=1 sweep run on the 81-patient pool (per 19 Aug supervisor guidance)",
+  "seed": 456,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 1,
+  "target_epsilon": 1.0,
+  "target_delta": 0.0001,
+  "achieved_epsilon_per_client": [
+    0.9949819403214858
+  ],
+  "client_logs": [
+    {
+      "k_clients": 1,
+      "seed": 456,
+      "site": "site-1",
+      "client_id": 0,
+      "n_patients": 79,
+      "clip_norm_C": 0.9006546139717102,
+      "clip_percentile": 95.0,
+      "noise_multiplier": 6.6015625,
+      "target_epsilon": 1.0,
+      "target_delta": 0.0001,
+      "final_achieved_epsilon": 0.9949819403214858,
+      "round_log": [
+        {
+          "round": 0,
+          "n_windows": 79,
+          "n_unique_patients": 79,
+          "ok": true
+        },
+        {
+          "round": 1,
+          "n_windows": 79,
+          "n_unique_patients": 79,
+          "ok": true
+        },
+        {
+          "round": 2,
+          "n_windows": 79,
+          "n_unique_patients": 79,
+          "ok": true
+        },
+        {
+          "round": 3,
+          "n_windows": 79,
+          "n_unique_patients": 79,
+          "ok": true
+        },
+        {
+          "round": 4,
+          "n_windows": 79,
+          "n_unique_patients": 79,
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 833,
+  "n_windows_test": 880,
+  "val_error_mean": 1.00196,
+  "val_error_std": 1.36358,
+  "adaptive_threshold": 1.66405,
+  "variance_detector_thresholds_per_channel": [
+    0.1220247,
+    0.01028159,
+    0.0
+  ],
+  "eval_n_windows": 880,
+  "eval_n_anomalous": 440,
+  "auroc_lstm_ae_only": 0.6438,
+  "lstm_ae_only": {
+    "f1": 0.4354,
+    "precision": 0.7778,
+    "recall": 0.3023,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 113,
+        "recall": 0.7687074829931972
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 9,
+        "recall": 0.06382978723404255
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 11,
+        "recall": 0.07236842105263158
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.5684,
+    "precision": 0.5806,
+    "recall": 0.5568,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 55,
+        "recall": 0.3741496598639456
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 93,
+        "recall": 0.6595744680851063
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 97,
+        "recall": 0.6381578947368421
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6817,
+    "precision": 0.6217,
+    "recall": 0.7545,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 147,
+        "detected": 132,
+        "recall": 0.8979591836734694
+      },
+      "dropout": {
+        "n": 141,
+        "detected": 96,
+        "recall": 0.6808510638297872
+      },
+      "flatline": {
+        "n": 152,
+        "detected": 104,
+        "recall": 0.6842105263157895
+      }
+    }
+  }
+}

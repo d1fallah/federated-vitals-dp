@@ -11,6 +11,10 @@
 *.xlsx
 *.xls
 
+# Exception: publication-ready vector figures are real research deliverables,
+# not personal/supervisor documents -- keep them tracked.
+!paper_assets/figures/*.pdf
+
 # ---- Patient / Physiological Data (NEVER commit) ----
 data/
 mimic4wdb/

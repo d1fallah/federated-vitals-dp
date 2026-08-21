@@ -1,0 +1,522 @@
+{
+  "0": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "6": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    }
+  },
+  "1": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "2": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "2": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "3": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    }
+  },
+  "3": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.2555
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.2555
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.2555
+    },
+    "4": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.2555
+    },
+    "7": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "8": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.2555
+    }
+  },
+  "4": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "6": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.0089
+    }
+  },
+  "5": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    }
+  },
+  "6": {
+    "0": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "4": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "7": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 2.26
+    }
+  },
+  "8": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "1": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "3": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "4": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "5": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "6": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.5066
+    },
+    "8": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "9": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    }
+  },
+  "9": {
+    "0": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "1": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "2": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "3": {
+      "delivered": false,
+      "reason": "packet_loss",
+      "transfer_sec": null
+    },
+    "4": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "5": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "6": {
+      "delivered": false,
+      "reason": "dropout",
+      "transfer_sec": null
+    },
+    "7": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "8": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    },
+    "9": {
+      "delivered": true,
+      "reason": "ok",
+      "transfer_sec": 1.7578
+    }
+  }
+}

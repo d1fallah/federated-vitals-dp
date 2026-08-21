@@ -1,0 +1,92 @@
+{
+  "regime": "non_dp_federated",
+  "network_profile": "none",
+  "seed": 789,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 10,
+  "num_rounds": 10,
+  "local_epochs_per_round": 4,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 844,
+  "n_windows_test": 960,
+  "val_error_mean": 0.04643,
+  "val_error_std": 0.63882,
+  "adaptive_threshold": 0.00154,
+  "variance_detector_thresholds_per_channel": [
+    1e-08,
+    1.2e-07,
+    0.0
+  ],
+  "eval_n_windows": 960,
+  "eval_n_anomalous": 480,
+  "auroc_lstm_ae_only": 0.6716,
+  "lstm_ae_only": {
+    "f1": 0.4345,
+    "precision": 0.8343,
+    "recall": 0.2938,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 159,
+        "detected": 124,
+        "recall": 0.779874213836478
+      },
+      "dropout": {
+        "n": 173,
+        "detected": 9,
+        "recall": 0.05202312138728324
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 8,
+        "recall": 0.05405405405405406
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.3898,
+    "precision": 0.6952,
+    "recall": 0.2708,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 159,
+        "detected": 12,
+        "recall": 0.07547169811320754
+      },
+      "dropout": {
+        "n": 173,
+        "detected": 85,
+        "recall": 0.4913294797687861
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 33,
+        "recall": 0.22297297297297297
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.6258,
+    "precision": 0.7612,
+    "recall": 0.5312,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 159,
+        "detected": 126,
+        "recall": 0.7924528301886793
+      },
+      "dropout": {
+        "n": 173,
+        "detected": 90,
+        "recall": 0.5202312138728323
+      },
+      "flatline": {
+        "n": 148,
+        "detected": 39,
+        "recall": 0.2635135135135135
+      }
+    }
+  }
+}

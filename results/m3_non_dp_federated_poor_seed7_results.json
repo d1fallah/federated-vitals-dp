@@ -1,0 +1,713 @@
+{
+  "regime": "non_dp_federated_network_poor",
+  "network_profile": "poor",
+  "seed": 7,
+  "window_sec": 10,
+  "threshold_method": "95th percentile of validation error",
+  "architecture_note": "per-timestep-bottleneck decoder (see lstm_autoencoder.py docstring)",
+  "k_clients": 10,
+  "num_rounds": 10,
+  "local_epochs_per_round": 4,
+  "n_patients_val": 12,
+  "n_patients_test": 13,
+  "n_windows_val": 799,
+  "n_windows_test": 886,
+  "val_error_mean": 0.04765,
+  "val_error_std": 0.64209,
+  "adaptive_threshold": 0.00208,
+  "variance_detector_thresholds_per_channel": [
+    3e-08,
+    0.00161049,
+    0.0
+  ],
+  "eval_n_windows": 886,
+  "eval_n_anomalous": 443,
+  "auroc_lstm_ae_only": 0.659,
+  "lstm_ae_only": {
+    "f1": 0.4131,
+    "precision": 0.8696,
+    "recall": 0.2709,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 110,
+        "recall": 0.7333333333333333
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 3,
+        "recall": 0.019867549668874173
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 7,
+        "recall": 0.04929577464788732
+      }
+    }
+  },
+  "variance_detector_only": {
+    "f1": 0.4487,
+    "precision": 0.6565,
+    "recall": 0.3409,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 26,
+        "recall": 0.17333333333333334
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 73,
+        "recall": 0.48344370860927155
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 52,
+        "recall": 0.36619718309859156
+      }
+    }
+  },
+  "combined_with_variance_detector": {
+    "f1": 0.631,
+    "precision": 0.723,
+    "recall": 0.5598,
+    "per_anomaly_type_recall": {
+      "spike": {
+        "n": 150,
+        "detected": 118,
+        "recall": 0.7866666666666666
+      },
+      "dropout": {
+        "n": 151,
+        "detected": 74,
+        "recall": 0.4900662251655629
+      },
+      "flatline": {
+        "n": 142,
+        "detected": 56,
+        "recall": 0.39436619718309857
+      }
+    }
+  },
+  "connectivity_robustness": {
+    "a_priori_participation_rate": 0.1,
+    "a_priori_reason_breakdown": {
+      "forced_min_survivor_override": 10,
+      "deadline_exceeded": 46,
+      "dropout": 37,
+      "packet_loss": 7
+    },
+    "a_priori_per_round_participation": {
+      "0": 0.1,
+      "1": 0.1,
+      "2": 0.1,
+      "3": 0.1,
+      "4": 0.1,
+      "5": 0.1,
+      "6": 0.1,
+      "7": 0.1,
+      "8": 0.1,
+      "9": 0.1
+    },
+    "observed_participation_rate": 0.1,
+    "observed_reason_breakdown": {
+      "forced_min_survivor_override": 10,
+      "dropout": 37,
+      "packet_loss": 7,
+      "deadline_exceeded": 46
+    },
+    "n_client_logs_found": 10,
+    "client_logs": [
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-1",
+        "client_id": 0,
+        "n_local_windows": 663,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 1,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 9,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-10",
+        "client_id": 9,
+        "n_local_windows": 560,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-2",
+        "client_id": 1,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 2,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 4,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 5,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 6,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 7,
+            "delivered": true,
+            "reason": "forced_min_survivor_override"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-3",
+        "client_id": 2,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-4",
+        "client_id": 3,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-5",
+        "client_id": 4,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-6",
+        "client_id": 5,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "dropout"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-7",
+        "client_id": 6,
+        "n_local_windows": 640,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "dropout"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-8",
+        "client_id": 7,
+        "n_local_windows": 460,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "dropout"
+          }
+        ]
+      },
+      {
+        "network_profile": "poor",
+        "seed": 7,
+        "site": "site-9",
+        "client_id": 8,
+        "n_local_windows": 424,
+        "round_log": [
+          {
+            "round": 0,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 1,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 2,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 3,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 4,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 5,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 6,
+            "delivered": false,
+            "reason": "packet_loss"
+          },
+          {
+            "round": 7,
+            "delivered": false,
+            "reason": "dropout"
+          },
+          {
+            "round": 8,
+            "delivered": false,
+            "reason": "deadline_exceeded"
+          },
+          {
+            "round": 9,
+            "delivered": false,
+            "reason": "dropout"
+          }
+        ]
+      }
+    ]
+  }
+}

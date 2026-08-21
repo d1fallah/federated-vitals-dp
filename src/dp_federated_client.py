@@ -51,11 +51,6 @@ from lstm_autoencoder import LSTMAutoencoder
 import nvflare.client as flare
 from nvflare.app_common.abstract.fl_model import ParamsType
 
-K_CLIENTS = 10  # matches M3_DP_Threat_Model_Gate.md Section 5 -- unchanged even
-                # though only 2-3 of these 10 clients run in the pilot, so pilot
-                # client_ids map to the same patient partitions the eventual
-                # full K=10 run will use.
-SEED = 42
 WINDOW_SEC = 10
 CLIP_PERCENTILE = 95.0  # pre-registered before any DP training; must not change post-hoc
 
@@ -129,6 +124,8 @@ def main():
     parser.add_argument("--target_delta", type=float, default=1e-4)
     args = parser.parse_args()
     PROJECT_ROOT = os.environ["M3_PROJECT_ROOT"]
+    K_CLIENTS = int(os.environ.get("M3_K_CLIENTS", "10"))  # K-sweep (10, 5, 3, 1): set by dp_federated_job.py
+    SEED = int(os.environ.get("M3_SEED", "42"))  # multi-seed confidence-interval reruns; see dp_federated_job.py --seed
 
     flare.init()
     sys_info = flare.system_info()
@@ -154,6 +151,10 @@ def main():
     print(f"site={site_name}: {len(patient_windows)} usable patients, "
           f"pool sizes {[w.shape[0] for w in patient_windows.values()]}")
 
+    # NOT cuda: see federated_client.py for why -- NVFlare's SimEnv runs every
+    # client in-thread sharing one CUDA context, and K=10 concurrent clients
+    # reproducibly crashed with CUDA out-of-memory + cascading cuDNN failures
+    # this session. CPU is safe and, for these tiny models, fast enough.
     device = torch.device("cpu")
     model = ModuleValidator.fix(LSTMAutoencoder(n_channels=3, hidden_size=32, latent_size=16))
 
@@ -199,20 +200,26 @@ def main():
                   f"gradient norms, dry pass; fixed now, will not be tuned post-hoc)")
 
             dataset_obj = SwappableWindowDataset(windows)
-            # batch_size=1 (was len(dataset_obj), i.e. the whole per-round
-            # pool = q=1.0, no subsampling at all). Verified empirically this
-            # was the dominant cause of the huge noise multiplier: with
-            # Opacus's Poisson-sampling DataLoader, q=1.0 gets ZERO privacy
-            # amplification from subsampling -- one of the worst possible
-            # DP-SGD configurations. batch_size=1 gives q=1/n_patients per
-            # step (real subsampling), cutting the accountant-derived sigma
-            # roughly in half at this dataset scale (measured: 11.2 -> 5.7 at
-            # n=8, target eps=1.0/delta=1e-4). The one-window-per-patient
-            # invariant still holds automatically: this dataset already has
-            # at most one window per patient by construction (see
-            # sample_one_window_per_patient), so ANY subset Opacus draws
-            # from it also has at most one window per patient.
-            train_loader = torch.utils.data.DataLoader(dataset_obj, batch_size=1, shuffle=False)
+            # batch_size scales with pool size, targeting B~=8-16 per the
+            # 19 Aug supervisor guidance ("With K=3-5, each client gets
+            # 16-27 patients, allowing B=8-16 or higher. More gradient
+            # averaging -> noise suppression -> potential recovery of
+            # utility"). batch_size=1 (q=1/n_patients, tested first) fixed
+            # the accounting (privacy amplification from subsampling) but
+            # NOT utility: DP-SGD adds a fixed absolute noise amount per
+            # step then divides by batch size, so batch_size=1 gets hit
+            # with the full noise magnitude against a single example's
+            # signal regardless of how low sigma is -- confirmed
+            # empirically across the whole K=10/5/3 sweep at batch_size=1
+            # (all three collapsed near-identically despite sigma dropping
+            # from ~5.6 to ~2.9). This targets a real batch size instead,
+            # still capped by n_patients so q stays < 1 (privacy
+            # amplification preserved) and the one-window-per-patient
+            # invariant still holds automatically (this dataset already has
+            # at most one window per patient by construction; any subset
+            # Opacus draws from it also has at most one window per patient).
+            batch_size = max(1, min(16, len(dataset_obj) // 2))
+            train_loader = torch.utils.data.DataLoader(dataset_obj, batch_size=batch_size, shuffle=False)
             raw_optimizer = torch.optim.Adam(model.parameters(), lr=3e-3)
             # epochs param to make_private_with_epsilon = passes over the
             # dataloader, NOT total optimizer steps directly (that distinction
@@ -298,9 +305,12 @@ def main():
         flare.send(output_model)
 
         if round_idx == total_rounds - 1:
-            log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"dp_pilot_round_log_{site_name}.json")
+            seed_suffix = "" if SEED == 42 else f"_seed{SEED}"
+            log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"dp_pilot_round_log_k{K_CLIENTS}{seed_suffix}_{site_name}.json")
             with open(log_path, "w") as f:
                 json.dump({
+                    "k_clients": K_CLIENTS,
+                    "seed": SEED,
                     "site": site_name,
                     "client_id": client_id,
                     "n_patients": len(patient_windows),

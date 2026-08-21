@@ -1,0 +1,16 @@
+% M3 Axis 1 -- Privacy: DP K-sweep (seed 42; target epsilon=1.0, delta=1e-4)
+\begin{table}[t]
+\centering
+\caption{DP-SGD privacy mechanism across the K-sweep. All rounds protocol-compliant: one window per patient per round, verified every round, every client, every K.}
+\label{tab:m3-privacy-k-sweep}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+$K$ (clients) & Patients/client & Noise mult. $\sigma$ & Achieved $\varepsilon$ & Protocol-compliant \\
+\midrule
+10 & 7--9 & 8.52--10.31 & 0.96--1.00 & Yes (10/10) \\
+5 & 14--17 & 3.63--3.98 & 0.76--0.79 & Yes (5/5) \\
+3 & 26--27 & 2.93--2.97 & 0.77--0.80 & Yes (3/3) \\
+1 & 79 & 6.60 & 0.99 & Yes (1/1) \\
+\bottomrule
+\end{tabular}
+\end{table}

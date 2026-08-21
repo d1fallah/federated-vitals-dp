@@ -1,0 +1,45 @@
+{
+  "k_clients": 3,
+  "seed": 789,
+  "site": "site-3",
+  "client_id": 2,
+  "n_patients": 27,
+  "clip_norm_C": 1.1197988986968994,
+  "clip_percentile": 95.0,
+  "noise_multiplier": 8.515625,
+  "target_epsilon": 1.0,
+  "target_delta": 0.0001,
+  "final_achieved_epsilon": 0.9900246588875456,
+  "round_log": [
+    {
+      "round": 0,
+      "n_windows": 27,
+      "n_unique_patients": 27,
+      "ok": true
+    },
+    {
+      "round": 1,
+      "n_windows": 27,
+      "n_unique_patients": 27,
+      "ok": true
+    },
+    {
+      "round": 2,
+      "n_windows": 27,
+      "n_unique_patients": 27,
+      "ok": true
+    },
+    {
+      "round": 3,
+      "n_windows": 27,
+      "n_unique_patients": 27,
+      "ok": true
+    },
+    {
+      "round": 4,
+      "n_windows": 27,
+      "n_unique_patients": 27,
+      "ok": true
+    }
+  ]
+}

@@ -9,11 +9,13 @@ error, not the training set, to avoid an optimistic threshold. Evaluation
 uses synthetic anomaly injection (m3_anomaly_eval.py, approved Option A)
 on the held-out test patients.
 """
+import argparse
 import os
 import sys
 import time
 import json
 import numpy as np
+import torch
 from sklearn.metrics import f1_score, precision_score, recall_score, roc_auc_score
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -23,8 +25,7 @@ from anomaly_eval import build_labeled_eval_set
 from variance_detector import compute_variance_scores, variance_threshold, variance_predict, combine_predictions
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Results")
-SEED = 42
+RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 MAX_WINDOWS_PER_PATIENT = 80
 WINDOW_SEC = 10  # first attempt used 30s (1874 steps): training loss barely moved in
                  # 20 epochs (0.99254 -> 0.98949) -- too long a sequence for a single-
@@ -34,6 +35,13 @@ WINDOW_SEC = 10  # first attempt used 30s (1874 steps): training loss barely mov
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, default=42,
+                         help="Patient split / anomaly injection seed. Default 42 reproduces the original recorded results exactly; other values (e.g. 123, 7) are for multi-seed confidence-interval reporting.")
+    args = parser.parse_args()
+    SEED = args.seed
+    file_seed_suffix = "" if SEED == 42 else f"_seed{SEED}"
+
     os.makedirs(RESULTS_DIR, exist_ok=True)
     rng = np.random.default_rng(SEED)
 
@@ -57,15 +65,17 @@ def main():
         print("Not enough windows in one of the splits to run a real baseline. Stopping.")
         sys.exit(1)
 
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
     model = LSTMAutoencoder(n_channels=X_train.shape[-1], hidden_size=32, latent_size=16)
     print("Training centralized LSTM-AE...")
     t0 = time.time()
-    history = train_lstm_ae(model, X_train, epochs=40, lr=3e-3, batch_size=32)
+    history = train_lstm_ae(model, X_train, epochs=40, lr=3e-3, batch_size=32, device=str(device))
     train_time = time.time() - t0
     print(f"  trained in {train_time:.1f}s, loss[0]={history[0]:.5f} -> loss[-1]={history[-1]:.5f}")
     print(f"  full loss history: {[round(h,5) for h in history]}")
 
-    val_err = reconstruction_error(model, X_val)
+    val_err = reconstruction_error(model, X_val, device=str(device))
     threshold = percentile_threshold(val_err, pct=95.0)
     print(f"  validation reconstruction error: mean={val_err.mean():.5f} std={val_err.std():.5f}")
     print(f"  adaptive threshold (95th percentile of val error): {threshold:.5f}")
@@ -80,7 +90,7 @@ def main():
     print(f"  variance-detector per-channel thresholds (5th pct of val): {var_thresh}")
 
     X_eval, y_eval, kinds_used = build_labeled_eval_set(X_test, rng, anomaly_frac=0.5)
-    eval_err = reconstruction_error(model, X_eval)
+    eval_err = reconstruction_error(model, X_eval, device=str(device))
     y_pred_recon = (eval_err > threshold).astype(int)
 
     eval_var_scores = compute_variance_scores(X_eval, FS)
@@ -113,6 +123,7 @@ def main():
     print(f"\n  LSTM-AE reconstruction-error AUROC: {auroc:.4f}")
 
     f1_recon, precision_recon, recall_recon, breakdown_recon = score_block("LSTM-AE only", y_pred_recon)
+    f1_var, precision_var, recall_var, breakdown_var = score_block("Variance detector only", y_pred_var)
     f1_comb, precision_comb, recall_comb, breakdown_comb = score_block("LSTM-AE + variance detector (combined)", y_pred_combined)
 
     results = {
@@ -121,7 +132,7 @@ def main():
         "window_sec": WINDOW_SEC,
         "threshold_method": "95th percentile of validation error",
         "architecture_note": "per-timestep-bottleneck decoder (fixed from an earlier repeat-vector "
-                              "design that collapsed to near-constant output; see m3_lstm_ae.py docstring)",
+                              "design that collapsed to near-constant output; see lstm_autoencoder.py docstring)",
         "n_patients_total": n,
         "n_patients_train": len(train_patients),
         "n_patients_val": len(val_patients),
@@ -145,6 +156,12 @@ def main():
             "recall": round(float(recall_recon), 4),
             "per_anomaly_type_recall": breakdown_recon,
         },
+        "variance_detector_only": {
+            "f1": round(float(f1_var), 4),
+            "precision": round(float(precision_var), 4),
+            "recall": round(float(recall_var), 4),
+            "per_anomaly_type_recall": breakdown_var,
+        },
         "combined_with_variance_detector": {
             "f1": round(float(f1_comb), 4),
             "precision": round(float(precision_comb), 4),
@@ -152,7 +169,7 @@ def main():
             "per_anomaly_type_recall": breakdown_comb,
         },
     }
-    out_path = os.path.join(RESULTS_DIR, "m3_centralized_baseline_results.json")
+    out_path = os.path.join(RESULTS_DIR, f"m3_centralized_baseline{file_seed_suffix}_results.json")
     with open(out_path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\nResults saved to {out_path}")
